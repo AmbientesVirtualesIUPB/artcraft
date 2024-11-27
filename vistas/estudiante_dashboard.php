@@ -10,7 +10,7 @@ if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['tipo'] !== 0) {
     header("Location: ../../index.php");
     exit();
 }
-
+ 
 $estudianteId = $_SESSION['usuario']['id'];
 $usuarioClan = new UsuarioClan();
 $clanes = $usuarioClan->obtenerClanesPorEstudiante($estudianteId);
