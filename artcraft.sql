@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2024 a las 22:53:47
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 10-12-2024 a las 14:23:45
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,7 +45,9 @@ CREATE TABLE `cartas` (
 
 INSERT INTO `cartas` (`id`, `id_creador`, `nombre`, `descripcion`, `valor`, `visibilidad`, `marco`, `fondo`, `imagen`) VALUES
 (3, 3, 'Carta ensayo 1', 'Esta es una carta de prueba para ver si funciona', 100, 1, 'qwe', '123', 'erq12'),
-(4, 3, 'Carta de prueba 2', 'Esta es una carta de ensayo, a diferencia de la otra.', 50, 0, 'public/images/marcos/marcos/02.png', 'public/images/cartas/fondos/02.png', 'public/images/cartas/imagenes/05.png');
+(4, 3, 'Carta de prueba 2', 'Esta es una carta de ensayo, a diferencia de la otra.', 50, 0, 'public/images/marcos/marcos/02.png', 'public/images/cartas/fondos/02.png', 'public/images/cartas/imagenes/05.png'),
+(5, 3, 'muerte', 'cancela la materia', 16, 1, 'public/images/marcos/marcos/03.png', 'public/images/cartas/fondos/05.png', 'public/images/cartas/imagenes/01.png'),
+(6, 3, 'dragonsito marco amarillo', 'adfsdfasd', 100, 1, 'public/images/cartas/marcos/04.png', 'public/images/cartas/fondos/05.png', 'public/images/cartas/imagenes/08.png');
 
 -- --------------------------------------------------------
 
@@ -65,7 +67,9 @@ CREATE TABLE `cartas_grupo` (
 
 INSERT INTO `cartas_grupo` (`id`, `id_grupo`, `id_carta`) VALUES
 (4, 2, 3),
-(5, 1, 3);
+(5, 1, 3),
+(7, 6, 3),
+(8, 7, 3);
 
 -- --------------------------------------------------------
 
@@ -87,7 +91,11 @@ CREATE TABLE `clanes` (
 INSERT INTO `clanes` (`id`, `nombre`, `oro`, `grupo`) VALUES
 (2, 'Caos', 0, 1),
 (3, 'Perro', 0, 1),
-(4, 'vog', 0, 2);
+(4, 'vog', 0, 2),
+(5, 'Drows', 0, 6),
+(6, 'vanyar', 0, 6),
+(7, 'clan herramientas 3', 0, 7),
+(8, 'Toloposungo', 0, 7);
 
 -- --------------------------------------------------------
 
@@ -110,7 +118,30 @@ INSERT INTO `grupos` (`id`, `nombre`, `docente_id`) VALUES
 (2, 'casa', 3),
 (3, 'Caos', 3),
 (4, 'Ensayo', 3),
-(5, 'casa', 3);
+(5, 'casa', 3),
+(6, 'Ulkarcer', 3),
+(7, 'herramientas3', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `notas`
+--
+
+CREATE TABLE `notas` (
+  `id` int(11) NOT NULL,
+  `profesor_id` int(11) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `porcentaje` decimal(5,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `notas`
+--
+
+INSERT INTO `notas` (`id`, `profesor_id`, `descripcion`, `porcentaje`) VALUES
+(1, 3, 'entregable 2', 15.00),
+(2, 3, 'tipos de datos', 15.00);
 
 -- --------------------------------------------------------
 
@@ -157,7 +188,11 @@ INSERT INTO `usuario_clan` (`id`, `id_usuario`, `id_clan`) VALUES
 (2, 4, 3),
 (3, 2, 3),
 (5, 2, 4),
-(7, 3, 4);
+(7, 3, 4),
+(8, 2, 5),
+(9, 4, 5),
+(10, 2, 7),
+(11, 4, 7);
 
 --
 -- Índices para tablas volcadas
@@ -193,6 +228,13 @@ ALTER TABLE `grupos`
   ADD KEY `docente_id` (`docente_id`);
 
 --
+-- Indices de la tabla `notas`
+--
+ALTER TABLE `notas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `profesor_id` (`profesor_id`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -214,25 +256,31 @@ ALTER TABLE `usuario_clan`
 -- AUTO_INCREMENT de la tabla `cartas`
 --
 ALTER TABLE `cartas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `cartas_grupo`
 --
 ALTER TABLE `cartas_grupo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `clanes`
 --
 ALTER TABLE `clanes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `grupos`
 --
 ALTER TABLE `grupos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `notas`
+--
+ALTER TABLE `notas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -244,7 +292,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `usuario_clan`
 --
 ALTER TABLE `usuario_clan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas
@@ -274,6 +322,12 @@ ALTER TABLE `clanes`
 --
 ALTER TABLE `grupos`
   ADD CONSTRAINT `grupos_ibfk_1` FOREIGN KEY (`docente_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `notas`
+--
+ALTER TABLE `notas`
+  ADD CONSTRAINT `notas_ibfk_1` FOREIGN KEY (`profesor_id`) REFERENCES `usuarios` (`id`);
 
 --
 -- Filtros para la tabla `usuario_clan`
