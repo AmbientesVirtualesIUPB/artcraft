@@ -1,7 +1,12 @@
-<h2>Dashboard del Docente</h2>
+
+<head>
+    <link rel="stylesheet" href="">
+</head>
+
+<h2 class="Ddocente">Dashboard del Docente</h2>
 <p>Selecciona una opción para gestionar tu contenido:</p>
 
-<ul>
+<ul class="menu-opciones">
     <li><a href="?view=crear_grupo">Crear Grupo</a></li>
     <li><a href="?view=crear_cartas">Crear Cartas</a></li>
     <li><a href="?view=mis_grupos">Mis Grupos</a></li>
@@ -9,6 +14,7 @@
     <li><a href="?view=reportes">Reportes</a></li>
     <li><a href="?view=notas">Notas</a></li>
 </ul>
+
 
 <hr>
 

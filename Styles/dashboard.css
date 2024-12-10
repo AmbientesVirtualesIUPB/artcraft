@@ -1,0 +1,118 @@
+:root {
+    --gold: #DAA520;
+    --blue: #293A52;
+    --dark-bg: #212330;
+    --light-bg: #2A2C39;
+    --text-color: #FFFFFF;
+}
+
+body {
+    margin: 0;
+    font-family: helvetica,arial,sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--light-bg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-right: 3px solid var(--gold);
+}
+
+.sidebar h2 {
+    color: var(--gold);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: var(--gold);
+    color: var(--dark-bg);
+}
+
+.main-content {
+    flex: 1;
+    padding: 0 20px;
+    margin: 0 20;
+    margin-left: -20px;
+    background-color: var(--dark-bg);
+}
+
+.header {
+    display: flex; /* Flexbox para distribuir contenido */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Alinea verticalmente */
+    background-color: var(--blue);
+    color: var(--text-color);
+    border-color: #101010;
+    border-radius: 5px;
+    padding: 15px;
+    width: 99%;
+    position: relative;
+}
+
+.header > span {
+    position: absolute; /* Saca el span del flujo normal */
+    left: 50%; /* Coloca el centro */
+    transform: translateX(-50%); /* Ajusta para centrar */
+    font-size: 14px;
+}
+
+.header > a {
+    margin-left: auto; /* Empuja el enlace al extremo derecho */
+    text-decoration: none;
+    color: var(--gold); /* Color dorado */
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.header > a:hover {
+    color: #f0c93d; /* Efecto hover */
+}
+
+.menu-opciones {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.menu-opciones li {
+    background-color: var(--blue);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-opciones li:hover {
+    transform: scale(1.05);
+    background-color: var(--gold);
+    color: var(--dark-bg);
+}
+
+.menu-opciones a {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+}

@@ -41,12 +41,20 @@ switch ($tipoUsuario) {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="Styles/dashboard.css">
 </head>
 <body>
-    <h1>  Bienvenido, <?php echo htmlspecialchars($usuario['usuario']); ?></h1>
-    <a href="dashboard.php?action=logout">Cerrar Sesión</a>
-    <hr>
-    <?php include $vista; ?>
+    <div class="main-content">
+        <div class="header">
+            <span>Bienvenido, <?php echo htmlspecialchars($usuario['usuario']); ?></span>
+            <a href="dashboard.php?action=logout">Cerrar Sesión</a>
+        </div>
+        <div class="vista">
+            <?php include $vista; ?>
+        </div>
+        
+    </div>
 </body>
 </html>

@@ -1,0 +1,229 @@
+:root {
+    --gold: #DAA520;
+    --blue: #293A52;
+    --dark-bg: #212330;
+    --light-bg: #2A2C39;
+    --text-color: #FFFFFF;
+}
+
+#crearCartaBody {
+    font-family: Arial, sans-serif;
+    background-color: var(--dark-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 20px;
+    margin: 0;
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+.crear-carta {
+    width: 100%;
+    background: var(--light-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(53, 50, 50, 0.164);
+}
+
+.titulo-carta {
+    text-align: center;
+    margin-bottom: 20px;
+    z-index: 3;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.visualizacion-carta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 2px solid #000;
+    margin: 0 auto;
+}
+
+.visualizacion-carta .nombre {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    z-index: 3;
+}
+
+.visualizacion-carta .valor {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    z-index: 3;
+}
+
+.visualizacion-carta .descripcion {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    border-radius: 5px;
+    border: 0,1px solid rgba(93, 86, 112, 0.1);
+    background-color: rgba(93, 86, 112, 0.5);
+}
+
+.btn-crear {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+}
+
+.btn-crear:hover {
+    background-color: #45a049;
+}
+
+.horizontal-group {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.horizontal-group .form-group {
+    flex: 1;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--light-bg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-right: 3px solid var(--gold);
+}
+
+.sidebar h2 {
+    color: var(--gold);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: var(--gold);
+    color: var(--dark-bg);
+}
+
+.main-content {
+    flex: 1;
+    padding: 0 20px;
+    margin: 0 20;
+    margin-left: -20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--blue);
+    color: var(--text-color);
+    border-color: #101010;
+    border-radius: 5px;
+    padding: 15px;
+    width: 99%;
+    position: relative;
+}
+
+.header > span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+}
+
+.header > a {
+    margin-left: auto;
+    text-decoration: none;
+    color: var(--gold);
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.header > a:hover {
+    color: #f0c93d;
+}
+
+.menu-opciones {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.menu-opciones li {
+    background-color: var(--blue);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-opciones li:hover {
+    transform: scale(1.05);
+    background-color: var(--gold);
+    color: var(--dark-bg);
+}
+
+.menu-opciones a {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+}

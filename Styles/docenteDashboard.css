@@ -1,0 +1,78 @@
+:root {
+    --gold: #DAA520;
+    --blue: #293A52;
+    --dark-bg: #212330;
+    --light-bg: #2A2C39;
+    --text-color: #FFFFFF;
+    --bg-hover: #f0c93d;
+}
+
+
+.dashboard-docente {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto 20px 20px;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.Ddocente{
+    text-align: center;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.menu-opciones {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    gap: 10px;
+}
+
+.menu-opciones li {
+    margin: 5px;
+}
+
+.menu-opciones a {
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--blue);
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid var(--gold);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.menu-opciones a:hover {
+    background-color: var(--gold);
+    color: var(--dark-bg);
+    transform: scale(1.05);
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: var(--gold);
+    margin: 20px 0;
+}
+
+.vista-seleccionada {
+    background-color: var(--light-bg);
+    border: 2px solid var(--gold);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: var(--text-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
