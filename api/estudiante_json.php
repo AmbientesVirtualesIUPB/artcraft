@@ -1,4 +1,5 @@
 <?php
+require_once '../config/config.php';
 require_once '../controladores/UsuarioClan.php';
 
  
@@ -7,15 +8,16 @@ $usuarioClan = new UsuarioClan();
 $clanes = $usuarioClan->obtenerClanesPorEstudiante($estudianteId);
 ?>
 
-<?php if (!empty($clanes)): ?>
-    <ul>
-        <?php foreach ($clanes as $clan): ?>
-            <li>
-                <?php echo htmlspecialchars($clan['nombre_clan']); ?> 
-                (<?php echo htmlspecialchars($clan['nombre_grupo']); ?>)
-            </li>
-        <?php endforeach; ?>
-    </ul>
-<?php else: ?>
+<?php 
+if (!empty($clanes)):
+    echo (json_encode($clanes));
+    /*
+    foreach ($clanes as $clan):
+        echo htmlspecialchars($clan['nombre_clan']);
+        echo htmlspecialchars($clan['nombre_grupo']); 
+    endforeach; */
+else: ?>
     <p>No estás inscrito en ningún clan.</p>
-<?php endif; ?>
+<?php 
+endif
+?>
