@@ -10,14 +10,13 @@ $clanes = $usuarioClan->obtenerClanesPorEstudiante($estudianteId);
 
 <?php 
 if (!empty($clanes)):
-    echo (json_encode($clanes));
+    echo '{"clanes":'.(json_encode($clanes))."}";
     /*
     foreach ($clanes as $clan):
         echo htmlspecialchars($clan['nombre_clan']);
         echo htmlspecialchars($clan['nombre_grupo']); 
     endforeach; */
-else: ?>
-    <p>No estás inscrito en ningún clan.</p>
-<?php 
+else: 
+    echo '{"clanes":[]}';
 endif
 ?>
