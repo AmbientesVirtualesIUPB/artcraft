@@ -1,78 +1,146 @@
+
 :root {
-    --gold: #DAA520;
-    --blue: #293A52;
-    --dark-bg: #212330;
-    --light-bg: #2A2C39;
+    --morado: #7601b9;
+    --azul-cyan: #85ffff;
+    --gold: #ffbd2e;
+    --light-bg: #0b2538;
+    --dark-bg: #1e2a2c;
+    --blue: #00b4c3;
     --text-color: #FFFFFF;
     --bg-hover: #f0c93d;
 }
-
-
+/* Estilo general del contenedor */
 .dashboard-docente {
-    width: 90%;
-    max-width: 1200px;
-    margin: 20px auto 20px 20px;
     background-color: var(--light-bg);
-    border-radius: 8px;
-    padding: 20px;
+    padding: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-bottom: none;
+    margin-bottom: 0;
 }
 
-.Ddocente{
-    text-align: center;
-    color: var(--gold);
+/* Título */
+.Docente {
     margin-bottom: 10px;
+    font-size: 24px;    
+    display: flex;
+    align-items: flex-end; /* Alinea los elementos por la parte inferior */
+    gap: 10px; /* Espacio entre la imagen y el texto */
 }
 
-p {
-    text-align: center;
+
+.Docente img{
+    width: 8%;
+}
+
+.tipoPerfil{
     color: var(--text-color);
+    background-image: url("../public/images/dashboard/Recuadro-campo-01.png"); 
+    background-size: 100% 100%; /* Asegura que la imagen cubra completamente el área */
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center; /* Centra el texto */
+    line-height: 60px; /* Ajusta la altura de línea al tamaño del contenedor */
+    width: 250px;
+    display: inline-block;
+}
+
+.messaje{
+    display: flex;
+    align-items: center;/* Centra los elementos horizontalmente */
+    gap: 10px;
     margin-bottom: 20px;
 }
+.messaje img{
+    width: 3%;
+}
 
+/* Contenedor del menú */
 .menu-opciones {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 2% auto auto 2%; /* Primera y última columna al 20%, centro auto */
+    grid-template-rows: repeat(3, 1fr); /* 3 filas de igual altura */
+    row-gap: 20px;
+    column-gap: 60px;
     padding: 0;
-    margin: 0;
-    gap: 10px;
+    margin: 0 auto;
+    width: 100%;
+    color: cyan;
+    font-size: 24px;
 }
-
-.menu-opciones li {
-    margin: 5px;
+/*Animaciones de boton*/
+.menu-opciones > div {
+    transition: transform 0.3s ease;
 }
-
-.menu-opciones a {
-    text-decoration: none;
-    color: var(--text-color);
-    background-color: var(--blue);
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: 2px solid var(--gold);
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.menu-opciones a:hover {
-    background-color: var(--gold);
-    color: var(--dark-bg);
+.menu-opciones > div:hover {
     transform: scale(1.05);
 }
 
-hr {
-    border: none;
-    height: 2px;
-    background-color: var(--gold);
-    margin: 20px 0;
+/* Botones y (Grid secundario) */
+.btn1, .btn2, .btn3, .btn4, .btn5, .btn6 {
+    all: unset;
+    display: grid;
+    grid-template-columns: 45px auto 18px; /* 3 columnas */
+    grid-template-rows: 13px auto 19px;    /* 3 filas */
+    gap: 0; /* Elimina espacios entre celdas */
+    width: 100%; 
+    height: auto;
+    background-color: transparent; /* Sin fondo principal */
+}
+/* Botones individuales */
+.btn1, .btn3, .btn5{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+.btn2, .btn4, .btn6 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+/* Ajustar tamaño explícito de los elementos */
+.btn1-2, .btn2-2, .btn3-2, .btn4-2, .btn5-2, .btn6-2 {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* Ajusta para llenar el área del div */
+    width: 100%; /* Ajustar al tamaño de la celda */
+    height: 100%; /* Ajustar al tamaño de la celda */
 }
 
-.vista-seleccionada {
-    background-color: var(--light-bg);
-    border: 2px solid var(--gold);
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    color: var(--text-color);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+/* Posición de cada celda interna */
+.b1 { grid-column: 1; grid-row: 1; background-image: url('../public/images/dashboard/boton/00.png'); }
+.b2 { grid-column: 2; grid-row: 1; background-image: url('../public/images/dashboard/boton/10.png'); }
+.b3 { grid-column: 3; grid-row: 1; background-image: url('../public/images/dashboard/boton/20.png'); }
+
+.b4 { 
+    grid-column: 1; 
+    grid-row: 2; 
+    background-image: url('../public/images/dashboard/boton/01.png'); 
+}
+.b5 { 
+    grid-column: 2; 
+    grid-row: 2; 
+    background-color: #7601b9; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.b6 { 
+    grid-column: 3; 
+    grid-row: 2; 
+    background-image: url('../public/images/dashboard/boton/21.png'); 
+}
+
+.b7 { grid-column: 1; grid-row: 3; background-image: url('../public/images/dashboard/boton/02.png'); }
+.b8 { grid-column: 2; grid-row: 3; background-image: url('../public/images/dashboard/boton/12.png'); }
+.b9 { grid-column: 3; grid-row: 3; background-image: url('../public/images/dashboard/boton/22.png'); }
+
+.separador {
+    width: 99%; 
+    opacity: 0.75;
+    position: relative;
+    left: -1%;    
+}
+.separador img {
+    width: 103%;
+    display: block;
+    margin: auto auto;
+    
 }

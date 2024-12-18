@@ -1,5 +1,16 @@
+:root {
+    --morado: #7601b9;
+    --azul-cyan: #85ffff;
+    --gold: #ffbd2e;
+    --light-bg: #0b2538;
+    --dark-bg: #1e2a2c;
+    --blue: #00b4c3;
+    --text-color: #FFFFFF;
+    --bg-hover: #f0c93d;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Gotham Black', sans-serif;
     margin: 0;
     padding: 0;
     background: #212330; /* Fondo oscuro */

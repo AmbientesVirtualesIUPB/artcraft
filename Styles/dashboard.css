@@ -1,118 +1,78 @@
+
+@font-face {
+    font-family: 'Gotham Black';
+    src: url('../public/fonts/gotham-black-webfont.woff') format('woff'),
+         url('../public/fonts/gotham-black-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+*{    
+    padding: 0;
+    margin: 0;
+    font-family: 'Gotham Black', sans-serif;
+}
 :root {
-    --gold: #DAA520;
-    --blue: #293A52;
-    --dark-bg: #212330;
-    --light-bg: #2A2C39;
+    --morado: #7601b9;
+    --azul-cyan: #85ffff;
+    --gold: #ffbd2e;
+    --light-bg: #0b2538;
+    --dark-bg: #1e2a2c;
+    --blue: #00b4c3;
     --text-color: #FFFFFF;
+    --bg-hover: #f0c93d;
 }
 
 body {
     margin: 0;
-    font-family: helvetica,arial,sans-serif;
-    background-color: var(--dark-bg);
-    color: var(--text-color);
+    color: var(--azul-cyan);
     display: flex;
+    background-color: #222534;
+    background-image: url(../public/images/dashboard/Reticula-fondo.png);
+    background-attachment: fixed;
     min-height: 100vh;
 }
 
-.sidebar {
-    width: 250px;
-    background-color: var(--light-bg);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    border-right: 3px solid var(--gold);
-}
-
-.sidebar h2 {
-    color: var(--gold);
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.sidebar a {
-    text-decoration: none;
-    color: var(--text-color);
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-}
-
-.sidebar a:hover {
-    background-color: var(--gold);
-    color: var(--dark-bg);
-}
-
 .main-content {
+    margin: 0 auto;
+    padding-right: 0%;
     flex: 1;
-    padding: 0 20px;
-    margin: 0 20;
-    margin-left: -20px;
-    background-color: var(--dark-bg);
+    border-right: 2px solid var(--azul-cyan);
+    border-bottom: 5px solid var(--azul-cyan);
+    border-left: 2px solid var(--azul-cyan);
+    max-width: 800px;
 }
-
 .header {
-    display: flex; /* Flexbox para distribuir contenido */
-    justify-content: space-between; /* Espacio entre los elementos */
-    align-items: center; /* Alinea verticalmente */
-    background-color: var(--blue);
-    color: var(--text-color);
-    border-color: #101010;
-    border-radius: 5px;
-    padding: 15px;
-    width: 99%;
-    position: relative;
+    display: flex;
+    justify-content: space-between; /* Espacio entre el logo y el botón */
+    align-items: center;
+    background-color: var(--dark-bg);
+    padding: 10px 20px;
+    border-radius: 0 0 11px 11px;
+    border-right: 2px solid var(--azul-cyan);
+    border-bottom: 5px solid var(--azul-cyan);
+    border-left: 2px solid var(--azul-cyan);
+}
+/*----Logo pascual y artcraft----*/
+.logo-section {
+    display: flex; /* Organiza los logos en horizontal */
+    justify-content: space-between; 
+    width: 66%; /* Ajusta el ancho total del contenedor */
+    gap: 20px; /* Espacio entre las imágenes */    
 }
 
-.header > span {
-    position: absolute; /* Saca el span del flujo normal */
-    left: 50%; /* Coloca el centro */
-    transform: translateX(-50%); /* Ajusta para centrar */
-    font-size: 14px;
+.logo-section img {
+    width: 50%; /* Cada logo ocupará el 33% del contenedor */
+    object-fit: contain; /* Asegura que la imagen no se deforme */
+    max-height: 60px; /* Controla la altura máxima */
 }
-
-.header > a {
-    margin-left: auto; /* Empuja el enlace al extremo derecho */
+/*--------*/
+.header a {
+    color: var(--gold);
+    font-size: 1.3rem;
     text-decoration: none;
-    color: var(--gold); /* Color dorado */
-    font-size: 16px;
-    font-weight: bold;
     transition: color 0.3s ease;
 }
 
-.header > a:hover {
-    color: #f0c93d; /* Efecto hover */
-}
-
-.menu-opciones {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-}
-
-.menu-opciones li {
-    background-color: var(--blue);
-    border: 2px solid var(--gold);
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.menu-opciones li:hover {
-    transform: scale(1.05);
-    background-color: var(--gold);
-    color: var(--dark-bg);
-}
-
-.menu-opciones a {
-    text-decoration: none;
-    color: var(--text-color);
-    display: block;
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: bold;
+.header a:hover {
+    color: var(--azul-cyan);
 }

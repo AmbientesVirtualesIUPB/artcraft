@@ -48,13 +48,15 @@ switch ($tipoUsuario) {
 <body>
     <div class="main-content">
         <div class="header">
-            <span>Bienvenido, <?php echo htmlspecialchars($usuario['usuario']); ?></span>
+            <div class="logo-section">
+                <img src="public/images/dashboard/Logo-PascualBravo.png" alt="Logo Pascual Bravo">
+                <img src="public/images/dashboard/Logo-ArtCraft.png" alt="Logo ArtCraft">
+            </div>
             <a href="dashboard.php?action=logout">Cerrar Sesión</a>
         </div>
         <div class="vista">
             <?php include $vista; ?>
-        </div>
-        
+        </div>        
     </div>
 </body>
 </html>

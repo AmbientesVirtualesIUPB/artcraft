@@ -42,8 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="styles/crearCarta.css">
 </head>
 
-<div class="crear-carta">
-    <h2 class="titulo-carta">Crear Carta</h2>
+<div id="crearCartaBody" class="crear-carta">
     <form method="POST" action="">
         <div class="form-group">
             <label for="nombre">Nombre:</label>
@@ -51,13 +50,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <!-- Visualización previa de la carta -->
-        <div class="visualizacion-carta" id="preview-card">
-            <span class="nombre" id="card-name">Nombre</span>
-            <span class="valor" id="card-value">0</span>
-            <img id="card-frame" style="position:absolute; width:100%; height:100%;">
-            <img id="card-image" style="position:absolute; width:60%; height:60%; top:20%; left:20%;">
-            <span class="descripcion" id="card-description">Descripción</span>
-        </div>
+        <div class="marco-container">
+            <div class="visualizacion-carta" id="preview-card">            
+                <span class="nombre" id="card-name">Nombre</span>
+                <span class="valor" id="card-value">0</span>
+                <img id="card-frame" style="position:absolute; width:100%; height:100%;">
+                <img id="card-image" style="position:absolute; width:60%; height:60%; top:20%; left:20%;">
+                <span class="descripcion" id="card-description">Descripción</span>
+            </div>
+        </div>        
 
         <div class="form-group">
             <label for="descripcion">Descripción:</label>
