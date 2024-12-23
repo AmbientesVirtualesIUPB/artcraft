@@ -44,8 +44,9 @@ $miembros = $usuarioClan->obtenerMiembrosPorClan($clanId);
 <head>
     <meta charset="UTF-8">
     <title>Gestionar Clan</title>
+    <link rel="stylesheet" href="Styles/gestionarClan.css">
 </head>
-<body>
+<div id="gestionClanBody">
     <h2>Gestionar Clan: <?php echo $clanId; ?></h2>
 
     <h3>Miembros del Clan</h3>
@@ -77,5 +78,5 @@ $miembros = $usuarioClan->obtenerMiembrosPorClan($clanId);
     <?php if (!empty($message)): ?>
         <p><?php echo htmlspecialchars($message); ?></p>
     <?php endif; ?>
-</body>
+    </div>
 </html>

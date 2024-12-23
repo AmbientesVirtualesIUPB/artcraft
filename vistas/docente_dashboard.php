@@ -3,11 +3,11 @@
     $usuario = $_SESSION['usuario'];
 ?>
 
-<head>    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Styles/docenteDashboard.css">
-</head>
+    <head>    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Styles/docenteDashboard.css">
+    </head>
     <div class="dashboard-docente">
         <div class="Docente">
             <img src="public/images/dashboard/user.png" alt="iconoUser"> <p class="tipoPerfil"><?php echo htmlspecialchars($usuario['usuario']); ?></p>
@@ -16,8 +16,8 @@
             <img src="public/images/dashboard/Icono.png" alt="iconoUser">
             <p>Selecciona una opción del menu para gestionar tu contenido:</p>
         </div>        
-
-        <div class="menu-opciones"> <!-- Contenedor principal -->        
+    <!-- Contenedor principal -->
+        <div class="menu-opciones">         
         <!-- Columna 2 fila 1: Botones con grids anidados -->       
             <div class="btn1" role="button" onclick="window.location.href='?view=crear_grupo';" style="cursor: pointer;">
                 <div class="btn1-2 b1"></div>

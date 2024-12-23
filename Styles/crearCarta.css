@@ -9,6 +9,8 @@
     --light-bg: #0b2538;
     --dark-bg: #1e2a2c;
     --blue: #00b4c3;
+    --blue-border: #2062b7;
+    --blue-background: #0e1b2c;
     --text-color: #FFFFFF;
     --bg-hover: #f0c93d;
 }
@@ -18,16 +20,12 @@
     display: flex;
     justify-content: center;
     align-items: center; 
-    margin: 0;
+    margin-bottom: 25px;
     color: var(--text-color);
-    min-height: 100vh;
 }
 
-.crear-carta {
-    background: var(--light-bg);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(53, 50, 50, 0.164);
+#formCartas{
+    width: 90%;
 }
 
 .titulo-carta {
@@ -43,28 +41,23 @@
 label {
     display: block;
     margin-bottom: 5px;
-    font-weight: bold;
     color: var(--gold);
 }
 
 input, select, textarea {
     width: 100%;
     padding: 10px;
-    border: 3px solid var(--blue);
+    color: var(--text-color);
+    border: 3px solid var(--blue-border);
     border-radius: 5px;
     box-sizing: border-box;
+    background-color: var(--blue-background);
 }
 .marco-container {
-    margin: 2%;
-    border: none;
+    margin: 5% auto;
     position: relative;
-    width: 85%; /* Ajusta el tamaño según lo necesites */
+    width: 85%; 
     height: 85%;
-    background-image: url('../public/images/dashboard/Marco-Selector.png');
-    background-size: cover; /* Escala la imagen para cubrir todo el contenedor */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-    z-index: 3;
 }
 .visualizacion-carta {
     display: flex;
@@ -74,9 +67,9 @@ input, select, textarea {
     position: relative;
     width: 300px;
     height: 400px;
+    background-color: var(--blue-background);
     background-size: cover;
     background-repeat: no-repeat;
-    border: 2px solid #000;
     margin: 0 auto;
 }
 
@@ -94,8 +87,8 @@ input, select, textarea {
 
 .visualizacion-carta .valor {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 23px;
+    right: 20px;
     font-weight: bold;
     font-size: 16px;
     color: #fff;
@@ -105,27 +98,39 @@ input, select, textarea {
 
 .visualizacion-carta .descripcion {
     position: absolute;
-    bottom: 10px;
+    bottom: 115px;
     left: 50%;
     transform: translateX(-50%);
+    width: 150px; /* Ancho fijo del recuadro */
+    height: 50px; /* Alto fijo del recuadro */
     font-size: 14px;
     text-align: center;
     color: #fff;
     text-shadow: 1px 1px 2px #000;
     border-radius: 5px;
-    border: 0,1px solid rgba(93, 86, 112, 0.1);
+    border: 0.1px solid rgba(93, 86, 112, 0.1);
     background-color: rgba(93, 86, 112, 0.5);
+    overflow: hidden; /* Ocultar el texto que exceda el tamaño */
+    text-overflow: ellipsis; /* Agregar puntos suspensivos (...) si el texto es demasiado largo */
+    display: flex; /* Para centrar el texto */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
 }
 
 .btn-crear {
-    background-color: #4caf50;
+    background-image: url('../public/images/dashboard/Boton-Amarillo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 40%;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    display: block;
-    width: 100%;
     font-size: 16px;
 }
 
@@ -141,33 +146,4 @@ input, select, textarea {
 
 .horizontal-group .form-group {
     flex: 1;
-}
-
-.sidebar {
-    width: 250px;
-    background-color: var(--light-bg);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    border-right: 3px solid var(--gold);
-}
-
-.sidebar h2 {
-    color: var(--gold);
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.sidebar a {
-    text-decoration: none;
-    color: var(--text-color);
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-}
-
-.sidebar a:hover {
-    background-color: var(--gold);
-    color: var(--dark-bg);
 }

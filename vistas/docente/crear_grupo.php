@@ -31,18 +31,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Crear Grupo</title>
+    <link rel="stylesheet" href="Styles/crearGrupo.css">
 </head>
-<body>
-    <h2>Crear Grupo</h2>
+    <div id="crearGrupoBody">
+        <form method="POST" action="">
+            <label for="nombre">Nombre del Grupo:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <button class="btn-crear" type="submit">Crear Grupo</button>
+        </form>
 
-    <form method="POST" action="">
-        <label for="nombre">Nombre del Grupo:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        <button type="submit">Crear Grupo</button>
-    </form>
-
-    <?php if (!empty($message)): ?>
-        <p><?php echo htmlspecialchars($message); ?></p>
-    <?php endif; ?>
-</body>
+        <?php if (!empty($message)): ?>
+            <p><?php echo htmlspecialchars($message); ?></p>
+        <?php endif; ?>
+    </div>
 </html>

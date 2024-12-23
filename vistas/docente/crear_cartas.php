@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <div id="crearCartaBody" class="crear-carta">
-    <form method="POST" action="">
+    <form id="formCartas" method="POST" action="">
         <div class="form-group">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span class="nombre" id="card-name">Nombre</span>
                 <span class="valor" id="card-value">0</span>
                 <img id="card-frame" style="position:absolute; width:100%; height:100%;">
-                <img id="card-image" style="position:absolute; width:60%; height:60%; top:20%; left:20%;">
+                <img id="card-image" style="position:absolute; width:60%; height:60%; top:24%; left:20%;">
                 <span class="descripcion" id="card-description">Descripción</span>
             </div>
         </div>        
@@ -72,8 +72,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="horizontal-group">
             <div class="form-group">
-                <label for="marco">Marco:</label>
+                <label for="marco">Marco</label>
                 <select id="marco" name="marco" required>
+                    <option value="public/images/dashboard/Marco-Selector.png" selected disabled>-</option>
                     <option value="public/images/cartas/marcos/01.png">01</option>
                     <option value="public/images/cartas/marcos/02.png">02</option>
                     <option value="public/images/cartas/marcos/03.png">03</option>
@@ -82,8 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="form-group">
-                <label for="fondo">Fondo:</label>
+                <label for="fondo">Fondo</label>
                 <select id="fondo" name="fondo" required>
+                    <option value="" selected disabled>-</option>
                     <option value="public/images/cartas/fondos/01.png">01</option>
                     <option value="public/images/cartas/fondos/02.png">02</option>
                     <option value="public/images/cartas/fondos/03.png">03</option>
@@ -93,8 +95,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="form-group">
-                <label for="imagen">Imagen:</label>
+                <label for="imagen">Imagen</label>
                 <select id="imagen" name="imagen" required>
+                    <option value="" selected disabled>-</option>
                     <option value="public/images/cartas/imagenes/01.png">01</option>
                     <option value="public/images/cartas/imagenes/02.png">02</option>
                     <option value="public/images/cartas/imagenes/03.png">03</option>
@@ -106,18 +109,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </select>
             </div>
             <div class="form-group">
-            <label for="visibilidad">Visibilidad:</label>
+            <label for="visibilidad">Visibilidad</label>
             <select id="visibilidad" name="visibilidad" required>
                 <option value="0">Personal (solo yo puedo verla)</option>
                 <option value="1">Pública (todos pueden verla)</option>
             </select>
         </div>
         </div>
-
         <button type="submit" class="btn-crear">Crear Carta</button>
     </form>
 </div>
 <script>
+    //elementos visuales
+
+
+
     // Actualizar vista previa de la carta
     const nombreInput = document.getElementById('nombre');
     const descripcionInput = document.getElementById('descripcion');
@@ -139,6 +145,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     marcoSelect.addEventListener('change', () => cardFrame.src = marcoSelect.value);
     fondoSelect.addEventListener('change', () => previewCard.style.backgroundImage = `url(${fondoSelect.value})`);
     imagenSelect.addEventListener('change', () => cardImage.src = imagenSelect.value);
+    
+    function renderDefaultFrame() {
+    const frameSelect = document.getElementById("marco");
+    const frameImage = document.getElementById("card-frame");
+
+    // Obtener el valor seleccionado
+    const selectedFrame = frameSelect.value;
+
+    // Actualizar la imagen del marco
+    frameImage.src = selectedFrame;
+
+    // Ajustar dimensiones solo si es el primer marco
+    if (selectedFrame === "public/images/dashboard/Marco-Selector.png") {
+        frameImage.style.width = "120%";
+        frameImage.style.height = "120%";
+    } else {
+        frameImage.style.width = "100%";
+        frameImage.style.height = "100%";
+    }
+}
+
+// Actualizar el marco dinámicamente cuando el usuario selecciona otro
+function updateFrameOnChange() {
+    const frameSelect = document.getElementById("marco");
+    frameSelect.addEventListener("change", function () {
+        const frameImage = document.getElementById("card-frame");
+
+        // Actualizar el marco según la opción seleccionada
+        const selectedFrame = frameSelect.value;
+        frameImage.src = selectedFrame;
+
+        // Ajustar dimensiones solo si es el primer marco
+        if (selectedFrame === "public/images/dashboard/Marco-Selector.png") {
+            frameImage.style.width = "120%";
+            frameImage.style.height = "120%";
+        } else {
+            frameImage.style.width = "100%";
+            frameImage.style.height = "100%";
+        }
+    });
+}
+
+// Inicializar la visualización
+window.onload = function () {
+    renderDefaultFrame(); // Renderizar el marco por defecto al cargar la página
+    updateFrameOnChange(); // Permitir que se actualice al cambiar el marco
+};
 </script>
 
 

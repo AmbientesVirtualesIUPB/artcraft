@@ -19,25 +19,30 @@ $cartas = $cartaController->obtenerCartasPorCreador($idCreador);
 
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Mis Cartas</title>
-</head>
-<body>
-    <h2>Mis Cartas</h2>
-
-    <?php if (!empty($cartas)): ?>
-        <ul>
-            <?php foreach ($cartas as $carta): ?>
-                <li>
-                    <strong><?php echo htmlspecialchars($carta['nombre']); ?></strong>:
-                    <?php echo htmlspecialchars($carta['descripcion']); ?>
-                    (Valor: <?php echo htmlspecialchars($carta['valor']); ?>)
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php else: ?>
-        <p>No tienes cartas creadas.</p>
-    <?php endif; ?>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Mis Cartas</title>
+        <link rel="stylesheet" href="Styles/misCartas.css">
+    </head>
+    <div id="misCartasBody">
+            <?php if (!empty($cartas)): ?>
+                <ul class="cartas-lista">
+                    <?php foreach ($cartas as $carta): ?>
+                        <li class="carta-item">
+                            <div class="carta-nombre">
+                                <strong><?php echo htmlspecialchars($carta['nombre']); ?></strong>
+                            </div>
+                            <div class="carta-descripcion">
+                                <?php echo htmlspecialchars($carta['descripcion']); ?>
+                            </div>
+                            <div class="carta-valor">
+                                Valor: <span><?php echo htmlspecialchars($carta['valor']); ?></span>
+                            </div>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php else: ?>
+                <p>No tienes cartas creadas.</p>
+            <?php endif; ?>
+        </div>
 </html>

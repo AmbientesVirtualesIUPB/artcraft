@@ -1,0 +1,49 @@
+
+:root {
+    --morado: #7601b9;
+    --azul-cyan: #85ffff;
+    --gold: #ffbd2e;
+    --light-bg: #0b2538;
+    --dark-bg: #1e2a2c;
+    --blue: #00b4c3;
+    --blue-border: #2062b7;
+    --blue-background: #0e1b2c;
+    --text-color: #FFFFFF;
+    --bg-hover: #f0c93d;
+}
+#crearGrupoBody{
+    padding-top: 60px;
+    color: var(--gold);
+    display: flex;
+    height: auto;
+    justify-content: center;
+
+}
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    color: var(--text-color);
+    border: 3px solid var(--blue-border);
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: var(--blue-background);
+}
+
+.btn-crear {
+    background-image: url('../public/images/dashboard/Boton-Amarillo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 40%;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 60px;
+    margin-bottom: 0px;
+}

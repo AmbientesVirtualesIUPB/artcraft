@@ -53,43 +53,44 @@ $clanes = $grupoClan->obtenerClanesPorGrupo($grupoId);
 <head>
     <meta charset="UTF-8">
     <title>Gestionar Grupo</title>
+    <link rel="stylesheet" href="Styles/gestionarGrupo.css">
 </head>
-<body>
-    <h2>Gestionar Grupo: <?php echo $grupoId; ?></h2>
+    <div id="gestionarGrupo">
+        <h2>Gestionar Grupo: <?php echo $grupoId; ?></h2>
 
-    <h3>Agregar Carta al Grupo</h3>
-    <form method="POST" action="">
-        <input type="hidden" name="action" value="add_carta">
-        <label for="id_carta">ID de la Carta:</label>
-        <input type="number" id="id_carta" name="id_carta" required>
-        <button type="submit">Agregar Carta</button>
-    </form>
+        <h3>Agregar Carta al Grupo</h3>
+        <form method="POST" action="">
+            <input type="hidden" name="action" value="add_carta">
+            <label for="id_carta">ID de la Carta:</label>
+            <input type="number" id="id_carta" name="id_carta" required>
+            <button type="submit">Agregar Carta</button>
+        </form>
 
-    <h3>Crear Clan en el Grupo</h3>
-    <form method="POST" action="">
-        <input type="hidden" name="action" value="add_clan">
-        <label for="nombre_clan">Nombre del Clan:</label>
-        <input type="text" id="nombre_clan" name="nombre_clan" required>
-        <button type="submit">Crear Clan</button>
-    </form>
+        <h3>Crear Clan en el Grupo</h3>
+        <form method="POST" action="">
+            <input type="hidden" name="action" value="add_clan">
+            <label for="nombre_clan">Nombre del Clan:</label>
+            <input type="text" id="nombre_clan" name="nombre_clan" required>
+            <button type="submit">Crear Clan</button>
+        </form>
 
-    <h3>Clanes del Grupo</h3>
-    <?php if (!empty($clanes)): ?>
-        <ul>
-            <?php foreach ($clanes as $clan): ?>
-                <li>
-                    <strong><?php echo htmlspecialchars($clan['nombre']); ?></strong> 
-                    (ID: <?php echo $clan['id']; ?>, Oro: <?php echo $clan['oro']; ?>)
-                    <a href="?view=gestionar_clan&id=<?php echo $clan['id']; ?>">Gestionar Clan</a>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php else: ?>
-        <p>No hay clanes asociados a este grupo.</p>
-    <?php endif; ?>
+        <h3>Clanes del Grupo</h3>
+        <?php if (!empty($clanes)): ?>
+            <ul class="cartas-lista">
+                <?php foreach ($clanes as $clan): ?>
+                    <li class="carta-item">
+                        <strong><?php echo htmlspecialchars($clan['nombre']); ?></strong> 
+                        (ID: <?php echo $clan['id']; ?>, Oro: <?php echo $clan['oro']; ?>)
+                        <a href="?view=gestionar_clan&id=<?php echo $clan['id']; ?>">Gestionar Clan</a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <p>No hay clanes asociados a este grupo.</p>
+        <?php endif; ?>
 
-    <?php if (!empty($message)): ?>
-        <p><?php echo htmlspecialchars($message); ?></p>
-    <?php endif; ?>
-</body>
+        <?php if (!empty($message)): ?>
+            <p><?php echo htmlspecialchars($message); ?></p>
+        <?php endif; ?>
+    </div>
 </html>

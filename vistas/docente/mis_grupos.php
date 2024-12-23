@@ -21,22 +21,26 @@ $grupos = $grupoClan->obtenerGruposPorDocente($docenteId);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mis Grupos</title>
+    <title>Mis Grupos</title>    
+    <link rel="stylesheet" href="Styles/misGrupos.css">
 </head>
-<body>
-    <h2>Mis Grupos</h2>
-
+<div id="misGruposBody">
     <?php if (!empty($grupos)): ?>
         <ul>
             <?php foreach ($grupos as $grupo): ?>
                 <li>
-                    <strong><?php echo htmlspecialchars($grupo['nombre']); ?></strong>
-                    <a href="?view=gestionar_grupo&id=<?php echo $grupo['id']; ?>">Gestionar</a>
+                    <div class="grupo">
+                    <p><?php echo htmlspecialchars($grupo['nombre']); ?></p>
+                    <button class="btn-crear"
+    onclick="window.location.href='?view=gestionar_grupo&id=<?php echo $grupo['id']; ?>';">
+    Gestionar
+</button>
+                    </div>                    
                 </li>
             <?php endforeach; ?>
         </ul>
     <?php else: ?>
         <p>No tienes grupos creados.</p>
     <?php endif; ?>
-</body>
+    </div>
 </html>
