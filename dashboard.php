@@ -54,6 +54,8 @@ switch ($tipoUsuario) {
             </div>
             <a href="dashboard.php?action=logout">Cerrar Sesión</a>
         </div>
+        <img class="imgDerParallax parallaxC1" src="public/images/arte/parallax/1/1.png">
+        <img class="imgDerParallax parallaxC2" src="public/images/arte/parallax/1/2.png">
         <div class="vista">
             <?php include $vista; ?>
         </div>        

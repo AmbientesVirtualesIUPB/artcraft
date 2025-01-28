@@ -3,11 +3,9 @@
     $usuario = $_SESSION['usuario'];
 
 ?>
-    <!DOCTYPE html>
-    <html lang="es">
-        <head>
+   
             <link rel="stylesheet" href="Styles/docenteDashboard.css">
-        </head>
+  
         <div class="dashboard-docente">
             <div class="Docente">
                 <img src="public/images/dashboard/user.png" alt="iconoUser"> <p class="tipoPerfil"><?php echo htmlspecialchars($usuario['usuario']); ?></p>
@@ -98,6 +96,10 @@
 
         <?php   
     // Determinar la vista seleccionada
-    $view = isset($_GET['view']) ? $_GET['view'] : 'default';
+    if(isset($_GET['view'])){
+        $view = "docente/".$_GET['view'].".php";
+        include $view;
+    }
+    
 ?>
-    </html>
+

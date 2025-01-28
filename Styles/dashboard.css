@@ -31,7 +31,21 @@ body {
     background-attachment: fixed;
     min-height: 100vh;
 }
-
+.imgDerParallax{
+    width: 40%;
+    height: auto;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+.parallaxC1{
+    z-index: -3;
+}
+.parallaxC2{
+    z-index: -2;
+    bottom: -75px;    
+    animation: breathing 12s ease-in-out infinite;
+}
 .main-content {
     margin: 0 auto;
     padding-right: 0%;
@@ -88,4 +102,13 @@ body {
 
 .header a:hover {
     color: var(--azul-cyan);
+}
+
+@keyframes breathing {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-35px);
+    }
 }

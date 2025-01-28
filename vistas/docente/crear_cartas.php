@@ -2,12 +2,11 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
 require_once BASE_PATH . '/controladores/CartaController.php';
 
 // Verificar si el usuario está autenticado y tiene permisos de docente
-if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['tipo'] !== 1) {
-    header("Location: ../../index.php");
+if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['tipo'] != 1) {
+    //header("Location: ../../index.php"); pendiente por corregir
     exit();
 }
 
@@ -35,8 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </p>
 <?php endif; ?>
 
-<!DOCTYPE html>
-<html>
+
 <link rel="stylesheet" href="styles/crearCarta.css">
 
 <div id="crearCartaBody" class="crear-carta">
@@ -190,9 +188,6 @@ window.onload = function () {
     updateFrameOnChange(); // Permitir que se actualice al cambiar el marco
 };
 </script>
-
-<p>parrafo de ejemplo</p>
-</html>
 
 
 
