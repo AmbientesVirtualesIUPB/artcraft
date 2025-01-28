@@ -36,11 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php endif; ?>
 
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">    
-    <link rel="stylesheet" href="styles/crearCarta.css">
-</head>
+<html>
+<link rel="stylesheet" href="styles/crearCarta.css">
 
 <div id="crearCartaBody" class="crear-carta">
     <form id="formCartas" method="POST" action="">
@@ -193,5 +190,9 @@ window.onload = function () {
     updateFrameOnChange(); // Permitir que se actualice al cambiar el marco
 };
 </script>
+
+<p>parrafo de ejemplo</p>
+</html>
+
 
 
