@@ -49,7 +49,7 @@ switch ($tipoUsuario) {
     <div class="main-content">
         <div class="header">
             <div class="logo-section">
-                <img src="public/images/dashboard/Logo-PascualBravo.png" alt="Logo Pascual Bravo">
+                <img src="public/images/dashboard/LOGO-PASCUAL-BRAVO.png" alt="Logo Pascual Bravo">
                 <img src="public/images/dashboard/Logo-ArtCraft.png" alt="Logo ArtCraft">
             </div>
             <a href="dashboard.php?action=logout">Cerrar Sesión</a>
