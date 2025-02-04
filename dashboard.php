@@ -55,13 +55,14 @@ switch ($tipoUsuario) {
             <a href="dashboard.php?action=logout">Cerrar Sesión</a>
         </div>
         <div class="parallax-container">
-            <img class="imgDerParallax parallaxC1" src="public/images/arte/parallax/1/1.png">
-            <img class="imgDerParallax parallaxC2 derC2" src="public/images/arte/parallax/1/2.png">
+            <img class="imgDerParallax parallaxC1" src="public/images/arte/parallax/1/1.png" data-speed="0.5">
+            <img class="imgDerParallax parallaxC2 derC2" src="public/images/arte/parallax/1/2.png" data-speed="2">
         </div>
         
         <div class="parallax-container">
-            <img class="imgIzqParallax parallaxC1" src="public/images/arte/parallax/2/1.png">
-            <img class="imgIzqParallax parallaxC2 izqC2" src="public/images/arte/parallax/2/2.png">
+            <img class="imgIzqParallax parallaxC1" src="public/images/arte/parallax/2/1.png" data-speed="0.5">
+            <img class="imgIzqParallax parallaxC2 izqC2" src="public/images/arte/parallax/2/2.png" data-speed="1">
+            <img class="imgIzqParallax parallaxC3 izqC3" src="public/images/arte/parallax/2/3.png" data-speed="2">
         </div>
         <div class="vista">
             <script src="Javascript/Dashboard.js"></script>

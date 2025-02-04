@@ -1,7 +1,10 @@
-*{
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
 }
+
+/* Root Colors */
 :root {
     --morado: #7601b9;
     --azul-cyan: #85ffff;
@@ -24,7 +27,7 @@
     color: var(--text-color);
 }
 
-#formCartas{
+#formCartas {
     width: 90%;
 }
 
@@ -53,17 +56,18 @@ input, select, textarea {
     box-sizing: border-box;
     background-color: var(--blue-background);
 }
+
 .marco-container {
     margin: 5% auto;
     position: relative;
     width: 85%; 
     height: 85%;
 }
+
 .visualizacion-carta {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
     position: relative;
     width: 300px;
     height: 400px;
@@ -73,49 +77,77 @@ input, select, textarea {
     margin: 0 auto;
 }
 
+/* Imagen estática sobre el nombre */
 .visualizacion-carta .nombre {
     position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 4%;
+    width: 75%;
+    height: 12.5%;
     font-weight: bold;
     font-size: 18px;
     color: #fff;
     text-shadow: 1px 1px 2px #000;
     z-index: 3;
+    border-radius: 8px;
+    padding: 0 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    background-image: url('../public/images/cartas/Elementos/NOMBRE.png'); /* Aquí va la imagen del nombre */
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
 }
 
+
+/* Imagen estática sobre el valor */
 .visualizacion-carta .valor {
     position: absolute;
-    top: 23px;
+    top: 85%;
     right: 20px;
     font-weight: bold;
     font-size: 16px;
     color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     text-shadow: 1px 1px 2px #000;
+    background-image: url('../public/images/cartas/Elementos/NUMERO.png'); /* Agregar la imagen sobre el valor */
+    background-size: contain;      
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 17%;
+    height: 12%;
     z-index: 3;
 }
 
 .visualizacion-carta .descripcion {
     position: absolute;
-    bottom: 115px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px; /* Ancho fijo del recuadro */
-    height: 50px; /* Alto fijo del recuadro */
+    bottom: 5%;
     font-size: 14px;
     text-align: center;
     color: #fff;
     text-shadow: 1px 1px 2px #000;
     border-radius: 5px;
-    border: 0.1px solid rgba(93, 86, 112, 0.1);
-    background-color: rgba(93, 86, 112, 0.5);
-    overflow: hidden; /* Ocultar el texto que exceda el tamaño */
-    text-overflow: ellipsis; /* Agregar puntos suspensivos (...) si el texto es demasiado largo */
-    display: flex; /* Para centrar el texto */
+    display: flex;
     justify-content: center; /* Centrar horizontalmente */
     align-items: center; /* Centrar verticalmente */
+    z-index: 2;
+    overflow: hidden; /* Evitar que el texto se desborde */
 }
+
+/* Imagen de fondo para la descripción con mantenimiento de proporción */
+.visualizacion-carta .descripcion {
+    background-image: url('../public/images/cartas/Elementos/DESCRIPCION.png'); /* Aquí va la imagen sobre la descripción */
+    background-size: contain; /* Mantener la proporción de la imagen */
+    background-position: center; /* Centrar la imagen */
+    background-repeat: no-repeat; /* Evitar que se repita la imagen */
+    width: 80%; /* 90% del ancho de la carta */
+    height: 40%;
+}
+
 
 .btn-crear {
     background-image: url('../public/images/dashboard/Boton-Amarillo.png');
@@ -146,4 +178,127 @@ input, select, textarea {
 
 .horizontal-group .form-group {
     flex: 1;
+}
+
+/* Estilo para las partículas */
+.sparkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+}
+
+/* Animación de partículas */
+@keyframes sparkAnimation {
+    0% {
+        transform: scale(0) translate(0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1) translate(100px, 100px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0) translate(0, 0);
+        opacity: 0;
+    }
+}
+
+/* Efecto de partículas */
+.spark {
+    position: absolute;
+    background: radial-gradient(circle, #fff, #ff0);
+    border-radius: 50%;
+    animation: sparkAnimation 1s ease-out infinite;
+}
+
+/* Animación de partículas (más llamativa) */
+@keyframes sparkAnimation {
+    0% {
+        transform: scale(0) translate(0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5) translate(50px, 50px); /* Aumenta el tamaño y desplazamiento */
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0) translate(0, 0);
+        opacity: 0;
+    }
+}
+
+/* Estilo para las chispas */
+.spark {
+    position: absolute;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), #ff0);
+    border-radius: 50%;
+    width: 20px;  /* Tamaño más grande para más visibilidad */
+    height: 20px;  /* Tamaño más grande */
+    animation: sparkAnimation 1s ease-out forwards; /* Añadimos "forwards" para mantener el efecto */
+}
+
+/* Para las pequeñas chispas */
+@keyframes smallSparks {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.small-spark {
+    position: absolute;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), #ff0);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    animation: smallSparks 0.5s ease-out forwards;
+}
+/* Estilo para la modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+}
+
+.modal-content {
+    background-color: var(--blue-background);
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: red;
 }
