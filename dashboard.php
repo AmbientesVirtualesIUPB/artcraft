@@ -35,6 +35,24 @@ switch ($tipoUsuario) {
         echo "Tipo de usuario no reconocido.";
         exit();
 }
+
+    // Seleccionar una carpeta al azar (1, 2 o 3)
+    $carpetas = ['1', '2', '3'];
+    $carpetaSeleccionada = $carpetas[array_rand($carpetas)];
+
+    // Cargar las imágenes de la carpeta seleccionada
+    $image1 = "public/images/arte/parallax/$carpetaSeleccionada/1.png";
+    $image2 = "public/images/arte/parallax/$carpetaSeleccionada/2.png";
+    $image3 = "public/images/arte/parallax/$carpetaSeleccionada/3.png";
+
+    $carpetaIzquierda = $carpetas[array_rand($carpetas)];
+    while ($carpetaIzquierda == $carpetaSeleccionada) {
+        $carpetaIzquierda = $carpetas[array_rand($carpetas)]; // Asegurarse de que la carpeta izquierda no sea la misma que la derecha
+    }
+
+    $image12 = "public/images/arte/parallax/$carpetaIzquierda/1.png";
+    $image22 = "public/images/arte/parallax/$carpetaIzquierda/2.png";
+    $image32 = "public/images/arte/parallax/$carpetaIzquierda/3.png";
 ?>
 
 <!DOCTYPE html>
@@ -55,15 +73,17 @@ switch ($tipoUsuario) {
             <a href="dashboard.php?action=logout">Cerrar Sesión</a>
         </div>
         <div class="parallax-container">
-            <img class="imgDerParallax parallaxC1" src="public/images/arte/parallax/1/1.png" data-speed="0.5">
-            <img class="imgDerParallax parallaxC2 derC2" src="public/images/arte/parallax/1/2.png" data-speed="2">
-        </div>
-        
+            <img class="imgDerParallax parallaxC1" src="<?php echo $image1; ?>" data-speed="0.5">
+            <img class="imgDerParallax parallaxC2 " src="<?php echo $image2; ?>" data-speed="2">
+            <img class="imgDerParallax parallaxC3 " src="<?php echo $image3; ?>" data-speed="2">
+        </div>        
         <div class="parallax-container">
-            <img class="imgIzqParallax parallaxC1" src="public/images/arte/parallax/2/1.png" data-speed="0.5">
-            <img class="imgIzqParallax parallaxC2 izqC2" src="public/images/arte/parallax/2/2.png" data-speed="1">
-            <img class="imgIzqParallax parallaxC3 izqC3" src="public/images/arte/parallax/2/3.png" data-speed="2">
-        </div>
+            <img class="imgIzqParallax parallaxC1" src="<?php echo $image12; ?>" data-speed="0.5">
+            <img class="imgIzqParallax parallaxC2 " src="<?php echo $image22; ?>" data-speed="1">
+            <img class="imgIzqParallax parallaxC3 " src="<?php echo $image32; ?>" data-speed="2">
+        </div>        
+        
+
         <div class="vista">
             <script src="Javascript/Dashboard.js"></script>
             <?php include $vista; ?>

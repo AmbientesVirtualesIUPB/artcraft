@@ -108,20 +108,21 @@ input, select, textarea {
     top: 85%;
     right: 20px;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 10px;
     color: #fff;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;  /* Esto centra el contenido horizontalmente */
+    align-items: center;      /* Esto centra el contenido verticalmente */
+    text-align: center;
     text-shadow: 1px 1px 2px #000;
-    background-image: url('../public/images/cartas/Elementos/NUMERO.png'); /* Agregar la imagen sobre el valor */
-    background-size: contain;      
+    background-image: url('../public/images/cartas/Elementos/NUMERO.png');
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     width: 17%;
     height: 12%;
     z-index: 3;
-}
+  }
 
 .visualizacion-carta .descripcion {
     position: absolute;
