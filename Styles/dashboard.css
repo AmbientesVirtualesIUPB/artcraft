@@ -27,7 +27,7 @@ body {
     color: var(--azul-cyan);
     display: flex;
     background-color: #222534;
-    background-image: url(../public/images/dashboard/Reticula-fondo.png);
+    background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0,0.85)), url(../public/images/dashboard/Reticula-fondo.png);
     background-attachment: fixed;
     min-height: 100vh;
 }
@@ -83,8 +83,10 @@ body {
     border-right: 2px solid var(--azul-cyan);
     border-bottom: 5px solid var(--azul-cyan);
     border-left: 2px solid var(--azul-cyan);
-    max-width: 800px;
+    width: 65%;
+    max-width: 1000px;
     background-color: var(--light-bg);
+    min-width: 769px;
 }
 @media (max-width: 768px) {
     .main-content {
@@ -112,15 +114,15 @@ body {
 /*----Logo pascual y artcraft----*/
 .logo-section {
     display: flex; /* Organiza los logos en horizontal */
-    justify-content: space-between; 
-    width: 66%; /* Ajusta el ancho total del contenedor */
-    gap: 20px; /* Espacio entre las imágenes */    
+    justify-content: space-around; 
+    width: 70%; /* Ajusta el ancho total del contenedor */
+    gap: 10px; /* Espacio entre las imágenes */    
 }
 
 .logo-section img {
-    width: 50%; /* Cada logo ocupará el 33% del contenedor */
+    width: 225px; /* Cada logo ocupará el 33% del contenedor */
     object-fit: contain; /* Asegura que la imagen no se deforme */
-    max-height: 60px; /* Controla la altura máxima */
+     /* Controla la altura máxima */
 }
 /*--------*/
 .header a {
