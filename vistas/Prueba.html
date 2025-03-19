@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .estuche {
+            position: fixed;
+            height: 369px;
+            width: 255px;
+        }
+        .carta {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+        .fondo, .marco, .info {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background-size: cover;
+        }
+        .dise_imagen {
+            position: absolute;
+            width: 100%;
+            top: 10%;
+            height: auto;
+            background-size: cover;
+        }
+        .titulo
+        {
+            color: white;
+            position: absolute;
+            width: 100%;
+            height: 9%;
+            font-size: clamp(12px, 2vw, 10px);
+            white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+            overflow: hidden;
+            top:3%;
+            display: flex;
+            align-items: center;     /* Centra el contenido verticalmente */
+            justify-content: center;
+        }
+        .descripcion
+        {
+            color: white;
+            position: absolute;
+            width: 90%;
+            height: 29%;
+            font-size: clamp(12px, 2vw, 10px);
+            overflow: hidden;
+            top:58%;
+            padding: 5%;
+            display: flex;
+            align-items: center;     /* Centra el contenido verticalmente */
+            justify-content: center;
+            text-align: center;
+        }
+        .valor
+        {
+            color: white;
+            position: absolute;
+            width: 10%;
+            height: 9%;
+            font-size: clamp(12px, 2vw, 10px);
+            white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+            overflow: hidden;
+            bottom:2%;
+            right: 4%;
+            display: flex;
+            align-items: center;     /* Centra el contenido verticalmente */
+            justify-content: center;
+        }
+
+        .slider-container {
+            text-align: center;
+        }
+
+        /* Estilos del slider */
+        input[type="range"] {
+            width: 80%; /* Establecemos el ancho del slider */
+            margin: 20px 0;
+        }
+
+        /* Estilo del texto que muestra las dimensiones */
+        .dimension-info {
+            font-size: 18px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="estuche" id="resize-box">
+        <div class="carta">
+            <div class="fondo" style="background-image: url('../public/images/cartas/fondos/03.png');"></div>
+            <img class="dise_imagen" src="../public/images/cartas/imagenes/6.png">
+            <div class="marco" style="background-image: url('../public/images/cartas/marcos/03.png');"></div>
+            <div class="info" style="background-image: url('../public/images/cartas/Elementos/informacion.png');"></div>
+            <div class="titulo">titulo de la carta</div>
+            <div class="descripcion">Descripcion de la carta,  Descripcion de la carta,  Descripcion de la carta,  Descripcion de la carta,  Descripcion de la carta,  Descripcion de la carta,  Descripcion de la carta,  Descripcion de la carta,  Descripcion de la carta, </div>
+            <div class="valor">50</div>
+        </div>
+    </div>
+
+    <div class="slider-container">
+        <input type="range" id="width-slider" min="100" max="500" value="300">
+        <p class="dimension-info" id="width-info">Ancho: 300px</p>
+    </div>
+
+    <script>
+        // Obtener los elementos de los sliders y el contenedor
+        const widthSlider = document.getElementById('width-slider');
+        const resizeBox = document.getElementById('resize-box');
+        const widthInfo = document.getElementById('width-info');
+
+        // Función para actualizar el tamaño del contenedor y el tamaño de la fuente
+        function updateDimensions() {
+            // Obtener los valores de los sliders
+            const newWidth = widthSlider.value;
+
+            // Cambiar las dimensiones del contenedor
+            resizeBox.style.width = newWidth + 'px';
+            resizeBox.style.height = (newWidth * 1.45) + 'px';
+
+            // Calcular un nuevo tamaño de fuente proporcional al ancho del contenedor
+            const fontSize = newWidth / 20; // Ajusta este factor según lo que prefieras
+
+            // Actualizar el tamaño de la fuente de los elementos
+            document.querySelectorAll('.titulo, .descripcion, .valor').forEach(element => {
+                element.style.fontSize = fontSize + 'px';
+            });
+
+            // Mostrar las dimensiones actuales en los párrafos
+            widthInfo.textContent = `Ancho: ${newWidth}px`;
+        }
+
+        // Event listeners para los sliders
+        widthSlider.addEventListener('input', updateDimensions);
+
+        // Llamar a la función para establecer las dimensiones iniciales
+        updateDimensions();
+    </script>
+
+</body>
+</html>

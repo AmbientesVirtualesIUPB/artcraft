@@ -51,7 +51,7 @@ class CartaController {
     */
     public function obtenerCartasPorCreador($idCreador) {
         try {
-            $sql = "SELECT id, nombre, descripcion, valor FROM cartas WHERE id_creador = :id_creador";
+            $sql = "SELECT * FROM cartas WHERE id_creador = :id_creador";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id_creador', $idCreador);
             $stmt->execute();

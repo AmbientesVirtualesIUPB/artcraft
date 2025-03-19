@@ -30,14 +30,13 @@ $cartas = $cartaController->obtenerCartasPorCreador($idCreador);
     <?php if (!empty($cartas)): ?>
         <ul class="cartas-lista">
             <?php foreach ($cartas as $carta): ?>
-                <li class="carta-item" 
+                <li class="carta-item"               
                     data-nombre="<?php echo htmlspecialchars($carta['nombre']); ?>" 
                     data-descripcion="<?php echo htmlspecialchars($carta['descripcion']); ?>"
                     data-valor="<?php echo htmlspecialchars($carta['valor']); ?>"
                     data-marco="<?php echo htmlspecialchars($carta['marco']); ?>"
                     data-fondo="<?php echo htmlspecialchars($carta['fondo']); ?>"
-                    data-imagen="<?php echo htmlspecialchars($carta['imagen']); ?>">
-                    
+                    data-imagen="<?php echo htmlspecialchars($carta['imagen']); ?>">                    
                     <strong><?php echo htmlspecialchars($carta['nombre']); ?></strong>
                 </li>
             <?php endforeach; ?>
@@ -52,8 +51,8 @@ $cartas = $cartaController->obtenerCartasPorCreador($idCreador);
     <div class="modal-content">
         <span class="close-btn" id="closeModal">&times;</span>
         <h2 id="modalNombre"></h2>
-        <img id="modalMarco" src="" alt="Marco de la carta" style="position:absolute; width:100%; height:100%;">
-        <img id="modalImagen" src="" alt="Imagen de la carta" style="width: 100%; height: auto;">
+        <img id="modalMarco" src="" alt="Marco de la carta" >
+        <img id="modalImagen" src="" alt="Imagen de la carta" >
         <p id="modalDescripcion"></p>
         <p><strong>Valor:</strong> <span id="modalValor"></span></p>
     </div>
