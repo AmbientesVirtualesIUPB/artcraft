@@ -86,22 +86,10 @@ body {
     width: 65%;
     max-width: 1000px;
     background-color: var(--light-bg);
-    min-width: 769px;
-}
-@media (max-width: 768px) {
-    .main-content {
-        margin: 0 auto;
-        padding-right: 0%;
-        flex: 1;
-        border-right: 2px solid var(--azul-cyan);
-        border-bottom: 5px solid var(--azul-cyan);
-        border-left: 2px solid var(--azul-cyan);
-        max-width: 100%;
-        background-color: var(--light-bg);
-    }
 }
 .header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between; /* Espacio entre el logo y el botón */
     align-items: center;
     background-color: var(--dark-bg);
@@ -151,6 +139,35 @@ body {
     }
     50% {
         transform: translate(75px, -35px); 
+    }
+}
+
+@media (max-width: 960px) {
+    .main-content {
+        margin: 0 auto;
+        padding-right: 0%;
+        flex: 1;
+        border-right: 2px solid var(--azul-cyan);
+        border-bottom: 5px solid var(--azul-cyan);
+        border-left: 2px solid var(--azul-cyan);
+        max-width: 100%;
+        background-color: var(--light-bg);
+    }
+    header {
+        display: flex; /* Organiza los logos en horizontal */
+        flex-flow: column;
+        justify-content: space-around; 
+        align-items: center;
+        width: 100%;
+    }
+    .logo-section {
+        display: flex; /* Organiza los logos en horizontal */
+        flex-direction: column;
+        justify-content: space-around; 
+        align-items: center;
+        width: 70%; /* Ajusta el ancho total del contenedor */
+        gap: 10px; /* Espacio entre las imágenes */    
+        position: static;
     }
 }
 

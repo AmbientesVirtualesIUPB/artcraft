@@ -54,31 +54,8 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.carta-nombre {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: var(--gold);
-}
-
-.carta-descripcion {
-    font-size: 14px;
-    margin-bottom: 10px;
-    color: var(--text-color);
-}
-
-.carta-valor {
-    font-size: 16px;
-    font-weight: bold;
-    text-align: right;
-    color: var(--azul-cyan);
-}
-
-.carta-valor span {
-    color: var(--gold);
-}
-
 /* 🎴 MODAL DE VISUALIZACIÓN DE CARTA */
+
 .modal {
     display: none;
     position: fixed;
@@ -90,27 +67,6 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-}
-#modalCarta{
-    width: 100%;
-    height: 100%;
-}
-#modalMarco{
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-.modal-content {
-    background: var(--blue-background);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    width: 327px;
-    height: 369px;
-    position: relative;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    border: 2px solid var(--gold);
-    animation: fadeIn 0.3s ease-in-out;
 }
 
 /* ❌ BOTÓN DE CERRAR */
@@ -129,21 +85,80 @@ body {
     color: var(--bg-hover);
 }
 
-/* 📌 IMAGENES DE LA CARTA EN LA MODAL */
-.modal img {
-    max-width: 100%;
-    border-radius: 5px;
+.estuche {
+    background: var(--blue-background);
+    position: fixed;
+    height: 369px;
+    width: 255px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--gold);
+    animation: fadeIn 0.3s ease-in-out;
+    z-index: 3001;
+}
+.carta {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.fondo, .marco, .info {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+}
+.dise_imagen {
+    position: absolute;
+    width: 100%;
+    top: 10%;
+    height: auto;
+    background-size: cover;
+}
+.titulo
+{
+    color: white;
+    position: absolute;
+    width: 100%;
+    height: 9%;
+    font-size: clamp(12px, 2vw, 10px);
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden;
+    top:3%;
+    display: flex;
+    align-items: center;     /* Centra el contenido verticalmente */
+    justify-content: center;
+}
+.descripcion
+{
+    color: white;
+    position: absolute;
+    width: 90%;
+    height: 29%;
+    font-size: clamp(12px, 2vw, 10px);
+    overflow: hidden;
+    top:58%;
+    padding: 5%;
+    display: flex;
+    align-items: center;     /* Centra el contenido verticalmente */
+    justify-content: center;
+    text-align: center;
+    z-index: 3002;
+}
+.valor
+{
+    color: white;
+    position: absolute;
+    width: 10%;
+    height: 9%;
+    font-size: clamp(12px, 2vw, 10px);
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden;
+    bottom:2%;
+    right: 4%;
+    display: flex;
+    align-items: center;     /* Centra el contenido verticalmente */
+    justify-content: center;
 }
 
-.modal h2 {
-    color: var(--gold);
-    margin-bottom: 10px;
-}
-
-.modal p {
-    font-size: 14px;
-    color: var(--text-color);
-}
 
 /* ⚡ ANIMACIÓN DE ENTRADA */
 @keyframes fadeIn {

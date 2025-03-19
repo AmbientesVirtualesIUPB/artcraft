@@ -48,28 +48,36 @@ $cartas = $cartaController->obtenerCartasPorCreador($idCreador);
 
 <!-- Modal para mostrar la carta -->
 <div id="modalCarta" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" id="closeModal">&times;</span>
-        <h2 id="modalNombre"></h2>
-        <img id="modalMarco" src="" alt="Marco de la carta" >
-        <img id="modalImagen" src="" alt="Imagen de la carta" >
-        <p id="modalDescripcion"></p>
-        <p><strong>Valor:</strong> <span id="modalValor"></span></p>
-    </div>
+        <div class="estuche" id="resize-box">
+            <div class="carta">
+                <div class="fondo" ></div>
+                <img id="modalImagen" class="dise_imagen" >
+                <div id="modalMarco" class="marco" ></div>
+                <div class="info" ></div>
+                <div class="titulo" id="modalNombre"></div>                
+                <div id="modalDescripcion" class="descripcion"></div>
+                <div id="modalValor" class="valor"></div>
+            </div>
+            <span class="close-btn" id="closeModal">&times;</span>
+        </div>
 </div>
 
 <script>
+    const resizeBox = document.getElementById('resize-box');
+
 document.addEventListener('DOMContentLoaded', function () {
     const cartas = document.querySelectorAll('.carta-item');
     const modal = document.getElementById('modalCarta');
     const closeModal = document.getElementById('closeModal');
     
     // Elementos dentro de la modal
+    const modalFondo = document.querySelector('.fondo'); 
+    const modalInfo = document.querySelector('.info');
+    const modalMarco = document.getElementById('modalMarco');
+    const modalImagen = document.getElementById('modalImagen');
     const modalNombre = document.getElementById('modalNombre');
     const modalDescripcion = document.getElementById('modalDescripcion');
     const modalValor = document.getElementById('modalValor');
-    const modalMarco = document.getElementById('modalMarco');
-    const modalImagen = document.getElementById('modalImagen');
 
     // Función para abrir la modal con los datos de la carta
     cartas.forEach(carta => {
@@ -77,13 +85,17 @@ document.addEventListener('DOMContentLoaded', function () {
             modalNombre.textContent = this.getAttribute('data-nombre');
             modalDescripcion.textContent = this.getAttribute('data-descripcion');
             modalValor.textContent = this.getAttribute('data-valor');
-            modalMarco.src = this.getAttribute('data-marco');
+
+            modalFondo.style.backgroundImage = 'url(' + this.getAttribute('data-fondo') + ')';
+            modalMarco.style.backgroundImage = 'url(' + this.getAttribute('data-marco') + ')';
+            modalInfo.style.backgroundImage = 'url("public/images/cartas/Elementos/informacion.png")';
             modalImagen.src = this.getAttribute('data-imagen');
 
             modal.style.display = "flex"; // Mostrar la modal
         });
     });
 
+    
     // Cerrar la modal
     closeModal.addEventListener('click', function () {
         modal.style.display = "none";
@@ -96,6 +108,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+function updateDimensions(newWidth) {
+        // Cambiar las dimensiones del contenedor
+        resizeBox.style.width = (newWidth*0.689) + 'px';
+        resizeBox.style.height = newWidth + 'px';
+
+        // Calcular un nuevo tamaño de fuente proporcional al ancho del contenedor
+        const fontSize = newWidth / 20; // Ajusta este factor según lo que prefieras
+
+        // Actualizar el tamaño de la fuente de los elementos
+        document.querySelectorAll('.titulo, .descripcion, .valor').forEach(element => {
+            element.style.fontSize = fontSize + 'px';
+        });
+    }
+    updateDimensions(window.innerHeight*0.6);
 </script>
 
 </body>

@@ -70,7 +70,9 @@ switch ($tipoUsuario) {
                 <img src="public/images/dashboard/LOGO-PASCUAL-BRAVO.png" alt="Logo Pascual Bravo">
                 <img src="public/images/dashboard/Logo-ArtCraft.png" alt="Logo ArtCraft">
             </div>
-            <a href="dashboard.php?action=logout">Cerrar Sesión</a>
+            <div>
+                <a href="dashboard.php?action=logout">Cerrar Sesión</a>
+            </div>
         </div>
         <div class="parallax-container">
             <img class="imgDerParallax parallaxC1" src="<?php echo $image1; ?>" data-speed="0.5">
