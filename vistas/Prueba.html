@@ -72,21 +72,6 @@
             align-items: center;     /* Centra el contenido verticalmente */
             justify-content: center;
         }
-
-        .slider-container {
-            text-align: center;
-        }
-
-        /* Estilos del slider */
-        input[type="range"] {
-            width: 80%; /* Establecemos el ancho del slider */
-            margin: 20px 0;
-        }
-
-        /* Estilo del texto que muestra las dimensiones */
-        .dimension-info {
-            font-size: 18px;
-        }
     </style>
     <title>Document</title>
 </head>
@@ -104,21 +89,12 @@
         </div>
     </div>
 
-    <div class="slider-container">
-        <input type="range" id="width-slider" min="100" max="500" value="300">
-        <p class="dimension-info" id="width-info">Ancho: 300px</p>
-    </div>
-
     <script>
         // Obtener los elementos de los sliders y el contenedor
-        const widthSlider = document.getElementById('width-slider');
         const resizeBox = document.getElementById('resize-box');
-        const widthInfo = document.getElementById('width-info');
 
         // Función para actualizar el tamaño del contenedor y el tamaño de la fuente
-        function updateDimensions() {
-            // Obtener los valores de los sliders
-            const newWidth = widthSlider.value;
+        function updateDimensions(newWidth) {
 
             // Cambiar las dimensiones del contenedor
             resizeBox.style.width = newWidth + 'px';
@@ -135,12 +111,7 @@
             // Mostrar las dimensiones actuales en los párrafos
             widthInfo.textContent = `Ancho: ${newWidth}px`;
         }
-
-        // Event listeners para los sliders
-        widthSlider.addEventListener('input', updateDimensions);
-
-        // Llamar a la función para establecer las dimensiones iniciales
-        updateDimensions();
+        updateDimensions(200);
     </script>
 
 </body>
